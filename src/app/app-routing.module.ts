@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
+import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { TutorialListComponent } from './components/tutorial-list/tutorial-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'tutorials', component: TutorialListComponent },
+  { path: 'tutorials/:id', component: TutorialDetailsComponent },
+  { path: 'add', component: AddTutorialComponent },
+  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
