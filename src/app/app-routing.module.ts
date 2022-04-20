@@ -5,10 +5,10 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialListComponent } from './components/tutorial-list/tutorial-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
   { path: 'tutorials', component: TutorialListComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent },
-  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
 ];
 
 @NgModule({
