@@ -1,4 +1,12 @@
 .edit-form {
-  max-width: 400px;
+  max-width: 450px;
   margin: auto;
+}
+.bottoni-controlli {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.bottoni-controlli > button {
+  width: 140px;
 }

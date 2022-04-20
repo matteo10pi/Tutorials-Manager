@@ -50,37 +50,42 @@
       </div>
 
       <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
+        <label><strong>Stato:</strong></label>
+        <span
+          class="badge rounded-pill"
+          [ngClass]="currentTutorial.published ? 'bg-success' : 'bg-secondary'"
+          >{{
+            currentTutorial.published ? "Pubblicato" : "Non pubblicato"
+          }}</span
+        >
       </div>
     </form>
+    <div class="bottoni-controlli">
+      <button
+        class="btn btn-secondary"
+        *ngIf="currentTutorial.published"
+        (click)="updatePublished(false)"
+      >
+        Non pubblicare
+      </button>
+      <button
+        *ngIf="!currentTutorial.published"
+        class="btn btn-success"
+        (click)="updatePublished(true)"
+      >
+        Pubblica
+      </button>
 
-    <button
-      class="badge badge-primary mr-2"
-      *ngIf="currentTutorial.published"
-      (click)="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button
-      *ngIf="!currentTutorial.published"
-      class="badge badge-primary mr-2"
-      (click)="updatePublished(true)"
-    >
-      Publish
-    </button>
+      <button class="btn btn-danger" (click)="deleteTutorial()">Elimina</button>
 
-    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
-      Delete
-    </button>
-
-    <button
-      type="submit"
-      class="badge badge-success mb-2"
-      (click)="updateTutorial()"
-    >
-      Update
-    </button>
+      <button
+        type="submit"
+        class="btn btn-warning text-dark"
+        (click)="updateTutorial()"
+      >
+        Aggiorna
+      </button>
+    </div>
     <p>{{ message }}</p>
   </div>
 
